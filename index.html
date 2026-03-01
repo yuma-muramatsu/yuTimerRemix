@@ -49,6 +49,35 @@
                         </div>
                     </div>
 
+                    <!-- Mode Label (shows during interval mode) -->
+                    <div class="mode-label" id="modeLabel"></div>
+
+                    <!-- Controls (Moved up for better accessibility) -->
+                    <div class="controls">
+                        <button class="control-btn btn-start" id="btnStart">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </button>
+                        <button class="control-btn btn-pause hidden" id="btnPause">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="6" y="4" width="4" height="16" />
+                                <rect x="14" y="4" width="4" height="16" />
+                            </svg>
+                        </button>
+                        <button class="control-btn btn-resume hidden" id="btnResume">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                        </button>
+                        <button class="control-btn btn-reset" id="btnReset">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10" />
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                            </svg>
+                        </button>
+                    </div>
+
                     <!-- Time Presets -->
                     <div class="time-presets">
                         <button class="preset-btn active" data-minutes="25" id="preset25">25分</button>
@@ -74,35 +103,6 @@
                             <input type="number" id="breakTimeInput" class="break-input" value="5" min="1" max="30">
                             <span class="break-label">分</span>
                         </div>
-                    </div>
-
-                    <!-- Mode Label (shows during interval mode) -->
-                    <div class="mode-label" id="modeLabel"></div>
-
-                    <!-- Controls -->
-                    <div class="controls">
-                        <button class="control-btn btn-start" id="btnStart">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3" />
-                            </svg>
-                        </button>
-                        <button class="control-btn btn-pause hidden" id="btnPause">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="6" y="4" width="4" height="16" />
-                                <rect x="14" y="4" width="4" height="16" />
-                            </svg>
-                        </button>
-                        <button class="control-btn btn-resume hidden" id="btnResume">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3" />
-                            </svg>
-                        </button>
-                        <button class="control-btn btn-reset" id="btnReset">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="23 4 23 10 17 10" />
-                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-                            </svg>
-                        </button>
                     </div>
                 </section>
             </div>
