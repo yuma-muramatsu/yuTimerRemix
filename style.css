@@ -114,7 +114,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-lg);
+    gap: var(--space-sm);
 }
 
 /* ===== Task Input ===== */
@@ -297,28 +297,89 @@ body {
     }
 }
 
-/* ===== Time Presets ===== */
+/* Mode Label (Integrated) */
+.mode-label {
+    position: absolute;
+    bottom: 30px;
+    z-index: 10;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 2px 12px;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+    min-height: 20px;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mode-label.work {
+    color: var(--color-primary);
+    background: white;
+    border: 1px solid var(--color-primary-light);
+}
+
+.mode-label.break {
+    color: #2e7d32;
+    background: white;
+    border: 1px solid #81c784;
+}
+
+/* Settings Card */
+.timer-settings-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 300px;
+    /* Match clock width slightly less */
+}
+
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settings-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    font-weight: 700;
+}
+
+.settings-divider {
+    height: 1px;
+    background: var(--color-divider);
+    margin: 2px 0;
+}
+
+/* Time Presets (Compact) */
 .time-presets {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
 .preset-btn {
-    padding: 7px 16px;
+    padding: 4px 10px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-sm);
     color: var(--color-text-secondary);
     font-family: var(--font-main);
-    font-size: 0.82rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-normal);
     outline: none;
-    box-shadow: var(--shadow-1);
 }
 
 .preset-btn:hover {
@@ -332,8 +393,7 @@ body {
 .preset-btn.active {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-text-on-primary);
-    box-shadow: var(--shadow-2);
+    color: white;
 }
 
 .preset-custom {
@@ -343,14 +403,14 @@ body {
 }
 
 .custom-input {
-    width: 50px;
-    padding: 7px 6px;
+    width: 38px;
+    padding: 4px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     color: var(--color-text);
     font-family: var(--font-main);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     text-align: center;
     outline: none;
     transition: all var(--transition-normal);
@@ -368,16 +428,16 @@ body {
 }
 
 .preset-set {
-    font-size: 0.78rem;
-    padding: 7px 10px;
+    font-size: 0.7rem;
+    padding: 4px 6px;
 }
 
-/* ===== Interval Settings ===== */
+/* ===== Interval Settings (Compact) ===== */
 .interval-settings {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
-    justify-content: center;
+    gap: 12px;
+    justify-content: flex-start;
 }
 
 .interval-toggle-label {
@@ -423,8 +483,8 @@ body {
 }
 
 .interval-label-text {
-    font-size: 0.82rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 700;
     color: var(--color-text-secondary);
 }
 
@@ -442,14 +502,14 @@ body {
 }
 
 .break-input {
-    width: 40px;
-    padding: 4px 4px;
+    width: 34px;
+    padding: 2px 4px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     color: var(--color-text);
     font-family: var(--font-main);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     text-align: center;
     outline: none;
     transition: all var(--transition-normal);
@@ -462,27 +522,6 @@ body {
 .break-input::-webkit-inner-spin-button,
 .break-input::-webkit-outer-spin-button {
     -webkit-appearance: none;
-}
-
-/* Mode Label */
-.mode-label {
-    font-size: 0.88rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 4px 16px;
-    border-radius: var(--radius-full);
-    transition: all var(--transition-normal);
-    min-height: 28px;
-}
-
-.mode-label.work {
-    color: var(--color-primary);
-    background: var(--color-primary-lighter);
-}
-
-.mode-label.break {
-    color: #2e7d32;
-    background: rgba(76, 175, 80, 0.1);
 }
 
 /* ===== Controls ===== */
