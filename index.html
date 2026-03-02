@@ -16,7 +16,7 @@
 
 <body>
     <div class="app">
-        <!-- Main Content - Three Column Layout -->
+        <!-- Main Content - Two Column Layout -->
         <main class="main">
             <!-- Left: Timer -->
             <div class="left-panel">
@@ -80,20 +80,9 @@
                 </section>
             </div>
 
-            <!-- Middle: Settings + Task Input -->
-            <div class="middle-panel">
-                <!-- Task Input -->
-                <div class="task-input-container">
-                    <div class="task-input-wrapper">
-                        <svg class="task-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                        </svg>
-                        <input type="text" id="taskInput" class="task-input" placeholder="タスクを入力..." autocomplete="off">
-                    </div>
-                </div>
-
-                <!-- Settings Card -->
+            <!-- Right: Settings + Input + History -->
+            <div class="right-panel">
+                <!-- 1. Settings Card -->
                 <div class="timer-settings-card">
                     <div class="settings-group">
                         <h3 class="settings-title">タイマー設定</h3>
@@ -128,10 +117,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Right: Task History -->
-            <div class="right-panel">
+                <!-- 2. Task Input -->
+                <div class="task-input-container">
+                    <div class="task-input-wrapper">
+                        <svg class="task-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
+                        <input type="text" id="taskInput" class="task-input" placeholder="これからのタスクを入力..."
+                            autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- 3. Task History -->
                 <section class="history-section">
                     <div class="history-header">
                         <h2>
