@@ -53,6 +53,13 @@
     --transition-fast: 0.15s ease;
     --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Timer Sizes */
+    --timer-size-l: 340px;
+    --timer-size-m: 280px;
+    --timer-size-s: 220px;
+    --timer-size: var(--timer-size-m);
+    /* Default */
 }
 
 /* ===== Reset & Base ===== */
@@ -98,9 +105,10 @@ body {
 }
 
 .left-panel {
-    flex: 0 0 320px;
+    flex: 0 0 var(--timer-size);
     position: sticky;
     top: var(--space-lg);
+    transition: flex var(--transition-normal);
 }
 
 .right-panel {
@@ -177,8 +185,8 @@ body {
 
 .timer-clock {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: var(--timer-size);
+    height: var(--timer-size);
     border-radius: 50%;
     background: linear-gradient(145deg, #cfd8dc, #b0bec5);
     box-shadow: var(--shadow-3), inset 0 2px 4px rgba(255, 255, 255, 0.3);
@@ -186,7 +194,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    transition: box-shadow var(--transition-slow);
+    transition: all var(--transition-normal);
 }
 
 .timer-clock.running {
@@ -271,13 +279,13 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 360px;
-    height: 360px;
+    width: calc(var(--timer-size) + 40px);
+    height: calc(var(--timer-size) + 40px);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(25, 118, 210, 0.08) 0%, transparent 70%);
     pointer-events: none;
     opacity: 0;
-    transition: opacity var(--transition-slow);
+    transition: all var(--transition-slow);
 }
 
 .timer-clock.running .timer-glow {
@@ -342,7 +350,7 @@ body {
 .timer-settings-card.single-row {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .vertical-divider {
@@ -448,6 +456,41 @@ body {
 .preset-set {
     font-size: 0.7rem;
     padding: 4px 6px;
+}
+
+/* ===== Size Toggle ===== */
+.size-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 2px;
+    border-radius: var(--radius-sm);
+}
+
+.size-btn {
+    padding: 3px 8px;
+    background: transparent;
+    border: none;
+    border-radius: calc(var(--radius-sm) - 1px);
+    color: var(--color-text-secondary);
+    font-family: var(--font-main);
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.size-btn:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-lighter);
+}
+
+.size-btn.active {
+    background: var(--color-primary);
+    color: white;
 }
 
 /* ===== Interval Settings (Compact) ===== */
@@ -961,18 +1004,14 @@ body {
 }
 
 @media (max-width: 640px) {
+    :root {
+        --timer-size-l: 280px;
+        --timer-size-m: 250px;
+        --timer-size-s: 200px;
+    }
+
     .main {
         padding: var(--space-lg) var(--space-md);
-    }
-
-    .timer-clock {
-        width: 280px;
-        height: 280px;
-    }
-
-    .timer-glow {
-        width: 320px;
-        height: 320px;
     }
 
     .btn-start,

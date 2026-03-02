@@ -21,6 +21,7 @@ const state = {
     breakMinutes: 5,
     workMinutes: 25,
     cycleCount: 0,
+    timerSize: 'm', // 's', 'm', 'l'
 };
 
 // ===== DOM Elements =====
@@ -602,6 +603,7 @@ function saveData() {
         taskHistory: state.taskHistory,
         todayTotalSeconds: state.todayTotalSeconds,
         lastDate: new Date().toLocaleDateString('ja-JP'),
+        timerSize: state.timerSize,
     };
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
@@ -626,6 +628,10 @@ function loadData() {
             state.todayTotalSeconds = state.taskHistory
                 .filter(t => t.date === today)
                 .reduce((sum, t) => sum + t.duration, 0);
+        }
+
+        if (data.timerSize) {
+            setTimerSize(data.timerSize);
         }
     } catch (e) {
         console.warn('Failed to load data:', e);
@@ -655,6 +661,13 @@ function setupEventListeners() {
             document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
             dom.presetCustom.classList.add('active');
         }
+    });
+
+    // Size selection
+    document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setTimerSize(btn.dataset.size);
+        });
     });
 
     dom.customMinutes.addEventListener('keydown', (e) => {
@@ -755,6 +768,25 @@ function setupEventListeners() {
             }
         }
     });
+}
+
+function setTimerSize(size) {
+    state.timerSize = size;
+
+    // Update UI
+    document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.size === size);
+    });
+
+    // Update CSS Variable
+    const sizeMap = {
+        's': 'var(--timer-size-s)',
+        'm': 'var(--timer-size-m)',
+        'l': 'var(--timer-size-l)'
+    };
+    document.documentElement.style.setProperty('--timer-size', sizeMap[size]);
+
+    saveData();
 }
 
 // ===== Start =====
