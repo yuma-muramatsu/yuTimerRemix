@@ -208,10 +208,10 @@ function updateModeLabel() {
     }
 
     if (state.isBreak) {
-        dom.modeLabel.textContent = '☕ 休憩中';
+        dom.modeLabel.textContent = '☕ 休憩';
         dom.modeLabel.className = 'mode-label break';
     } else {
-        dom.modeLabel.textContent = '🔥 集中中';
+        dom.modeLabel.textContent = '🔥 集中';
         dom.modeLabel.className = 'mode-label work';
     }
 }

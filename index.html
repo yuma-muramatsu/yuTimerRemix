@@ -16,7 +16,7 @@
 
 <body>
     <div class="app">
-        <!-- Main Content - Two Column Layout -->
+        <!-- Main Content - Three Column Layout -->
         <main class="main">
             <!-- Left: Timer -->
             <div class="left-panel">
@@ -77,61 +77,61 @@
                             </svg>
                         </button>
                     </div>
-
-                    <!-- Settings Card (Compact Grouping) -->
-                    <div class="timer-settings-card">
-                        <div class="settings-group">
-                            <h3 class="settings-title">タイマー設定</h3>
-                            <div class="time-presets">
-                                <button class="preset-btn active" data-minutes="25" id="preset25">25</button>
-                                <button class="preset-btn" data-minutes="15" id="preset15">15</button>
-                                <button class="preset-btn" data-minutes="10" id="preset10">10</button>
-                                <button class="preset-btn" data-minutes="5" id="preset5">5</button>
-                                <div class="preset-custom">
-                                    <input type="number" id="customMinutes" class="custom-input" min="1" max="120"
-                                        placeholder="分">
-                                    <button class="preset-btn preset-set" id="presetCustom">OK</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="settings-divider"></div>
-
-                        <div class="settings-group">
-                            <h3 class="settings-title">インターバル</h3>
-                            <div class="interval-settings">
-                                <label class="interval-toggle-label">
-                                    <input type="checkbox" id="intervalToggle" class="interval-checkbox">
-                                    <span class="interval-switch"></span>
-                                    <span class="interval-label-text">ON</span>
-                                </label>
-                                <div class="break-setting" id="intervalStatus">
-                                    <span class="break-label">休憩</span>
-                                    <input type="number" id="breakTimeInput" class="break-input" value="5" min="1"
-                                        max="30">
-                                    <span class="break-label">分</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </section>
             </div>
 
-            <!-- Right: Task Input + History -->
-            <div class="right-panel">
-                <!-- Task Input (above history) -->
+            <!-- Middle: Settings + Task Input -->
+            <div class="middle-panel">
+                <!-- Task Input -->
                 <div class="task-input-container">
                     <div class="task-input-wrapper">
                         <svg class="task-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                         </svg>
-                        <input type="text" id="taskInput" class="task-input" placeholder="これから取り組むタスクを入力..."
-                            autocomplete="off">
+                        <input type="text" id="taskInput" class="task-input" placeholder="タスクを入力..." autocomplete="off">
                     </div>
                 </div>
 
-                <!-- Task History -->
+                <!-- Settings Card -->
+                <div class="timer-settings-card">
+                    <div class="settings-group">
+                        <h3 class="settings-title">タイマー設定</h3>
+                        <div class="time-presets">
+                            <button class="preset-btn active" data-minutes="25" id="preset25">25</button>
+                            <button class="preset-btn" data-minutes="15" id="preset15">15</button>
+                            <button class="preset-btn" data-minutes="10" id="preset10">10</button>
+                            <button class="preset-btn" data-minutes="5" id="preset5">5</button>
+                            <div class="preset-custom">
+                                <input type="number" id="customMinutes" class="custom-input" min="1" max="120"
+                                    placeholder="分">
+                                <button class="preset-btn preset-set" id="presetCustom">OK</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-divider"></div>
+
+                    <div class="settings-group">
+                        <h3 class="settings-title">インターバル</h3>
+                        <div class="interval-settings">
+                            <label class="interval-toggle-label">
+                                <input type="checkbox" id="intervalToggle" class="interval-checkbox">
+                                <span class="interval-switch"></span>
+                                <span class="interval-label-text">ON</span>
+                            </label>
+                            <div class="break-setting" id="intervalStatus">
+                                <span class="break-label">休憩</span>
+                                <input type="number" id="breakTimeInput" class="break-input" value="5" min="1" max="30">
+                                <span class="break-label">分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Task History -->
+            <div class="right-panel">
                 <section class="history-section">
                     <div class="history-header">
                         <h2>
@@ -140,10 +140,10 @@
                                 <path d="M12 8v4l3 3" />
                                 <circle cx="12" cy="12" r="10" />
                             </svg>
-                            タスク履歴
+                            履歴
                         </h2>
                         <div class="history-actions">
-                            <div class="today-total-badge" id="todayStats">
+                            <div class="today-total-badge" id="todayStats" title="今日の合計">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
                                     height="14">
                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -169,7 +169,7 @@
                                 <line x1="9" y1="9" x2="15" y2="15" />
                                 <line x1="15" y1="9" x2="9" y2="15" />
                             </svg>
-                            <p>まだタスク履歴がありません</p>
+                            <p>履歴なし</p>
                             <span>タイマーを使ってタスクに取り組みましょう</span>
                         </div>
                     </div>
