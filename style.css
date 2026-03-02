@@ -333,11 +333,28 @@ body {
     backdrop-filter: blur(4px);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: 12px;
+    padding: 10px 14px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 100%;
+    gap: 10px;
+}
+
+.timer-settings-card.single-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--color-divider);
+}
+
+.settings-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .settings-group {
@@ -555,53 +572,53 @@ body {
 
 .btn-start,
 .btn-resume {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--color-primary);
     color: white;
-    box-shadow: var(--shadow-3);
+    box-shadow: var(--shadow-2);
     padding: 0;
 }
 
 .btn-start svg,
 .btn-resume svg {
-    width: 26px;
-    height: 26px;
-    margin-left: 3px;
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
 }
 
 .btn-start:hover,
 .btn-resume:hover {
     background: #1565c0;
-    box-shadow: var(--shadow-4);
+    box-shadow: var(--shadow-3);
     transform: scale(1.08);
 }
 
 .btn-pause {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--color-danger);
     color: white;
-    box-shadow: var(--shadow-3);
+    box-shadow: var(--shadow-2);
     padding: 0;
 }
 
 .btn-pause svg {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
 }
 
 .btn-pause:hover {
     background: #d32f2f;
-    box-shadow: var(--shadow-4);
+    box-shadow: var(--shadow-3);
     transform: scale(1.08);
 }
 
 .btn-reset {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -611,8 +628,8 @@ body {
 }
 
 .btn-reset svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .btn-reset:hover {
@@ -629,28 +646,59 @@ body {
 .history-section {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
     box-shadow: var(--shadow-2);
     display: flex;
     flex-direction: column;
-    min-height: 400px;
+    min-height: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.history-section.collapsed {
+    min-height: 60px;
+    max-height: 60px;
+    overflow: hidden;
 }
 
 .history-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--space-md);
     padding-bottom: var(--space-md);
     border-bottom: 1px solid var(--color-divider);
     flex-shrink: 0;
+    cursor: pointer;
 }
 
-.history-header h2 {
+.history-section.collapsed .history-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.history-title-group {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.95rem;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.history-section.collapsed .toggle-btn {
+    transform: rotate(-90deg);
+}
+
+.history-header h2 {
+    font-size: 0.9rem;
     font-weight: 700;
 }
 

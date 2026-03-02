@@ -59,6 +59,22 @@ const STORAGE_KEY = 'workTimer_data';
 // ===== Initialize =====
 function init() {
     loadData();
+    // Initialize History Toggle
+    const historyHeader = document.getElementById('historyHeader');
+    const historySection = document.getElementById('historySection');
+
+    // Load collapse state
+    const isHistoryCollapsed = localStorage.getItem('historyCollapsed') === 'true';
+    if (isHistoryCollapsed) {
+        historySection.classList.add('collapsed');
+    }
+
+    historyHeader.addEventListener('click', () => {
+        historySection.classList.toggle('collapsed');
+        localStorage.setItem('historyCollapsed', historySection.classList.contains('collapsed'));
+    });
+
+    // Initialize Marks and Numbers
     drawClockFace();
     updateWedge();
     updateTimerDisplay();
