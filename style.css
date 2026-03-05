@@ -995,11 +995,29 @@ body {
         width: 100%;
         display: flex;
         justify-content: center;
+        position: static;
+        /* Prevents timer overlapping settings when scrolling */
     }
 
     .right-panel {
         width: 100%;
         max-width: 600px;
+    }
+
+    /* Wrap settings card contents to prevent horizontal overflow */
+    .timer-settings-card.single-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .time-presets {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .vertical-divider {
+        display: none;
+        /* Hide dividers when components are wrapped */
     }
 }
 
